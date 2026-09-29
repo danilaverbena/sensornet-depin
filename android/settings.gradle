@@ -1,0 +1,2 @@
+rootProject.name = 'SensorNet'
+include ':app'
