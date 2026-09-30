@@ -31,8 +31,8 @@
     <application
         android:name=".MainApplication"
         android:label="SensorNet"
-        android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@drawable/ic_launcher"
+        android:roundIcon="@drawable/ic_launcher"
         android:allowBackup="false"
         android:theme="@style/AppTheme">
 
