@@ -56,7 +56,10 @@ class RoadRoughnessCollector(context: Context) : SensorEventListener {
                     potholeCount++
                 } else if (dynamicDeviation > 3.0f) {
                     bumpCount++
+                } else {
+                    // Normal road surface
                 }
+                Unit
             }
         }
     }
