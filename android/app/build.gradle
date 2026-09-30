@@ -43,10 +43,6 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.2")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
 
-    // Solana Mobile Wallet Adapter Client Library
-    implementation("com.solanamobile:mobile-wallet-adapter-clientlib-ktx:2.0.3")
-    implementation("com.solanamobile:mobile-wallet-adapter-clientlib:2.0.3")
-
     // Google Play Location Services
     implementation("com.google.android.gms:play-services-location:21.3.0")
 }

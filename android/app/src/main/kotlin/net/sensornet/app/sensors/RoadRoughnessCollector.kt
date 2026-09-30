@@ -47,7 +47,9 @@ class RoadRoughnessCollector(context: Context) : SensorEventListener {
 
             synchronized(lock) {
                 samples.add(dynamicDeviation)
-                if (samples.size > 500) samples.removeAt(0)
+                if (samples.size > 500) {
+                    samples.removeAt(0)
+                }
 
                 // Peak detection for road anomalies
                 if (dynamicDeviation > 5.5f) {
