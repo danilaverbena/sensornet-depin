@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#080B10"
+    android:padding="20dp">
+
+    <!-- Top Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="SENSORNET DEPIN"
+            android:textColor="#10B981"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="monospace" />
+
+        <Button
+            android:id="@+id/btnConnectWallet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CONNECT SEED VAULT"
+            android:textSize="11sp"
+            android:backgroundTint="#161D2C"
+            android:textColor="#06B6D4" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvWalletStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Wallet: Not Connected"
+        android:textColor="#9CA3AF"
+        android:textSize="12sp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="monospace" />
+
+    <!-- Hero Card -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#111622"
+        android:padding="16dp"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ACCUMULATED REWARDS"
+            android:textColor="#6B7280"
+            android:textSize="11sp"
+            android:fontFamily="monospace" />
+
+        <TextView
+            android:id="@+id/tvRewardAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="148.50 $SNTR"
+            android:textColor="#10B981"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:layout_marginVertical="6dp" />
+
+        <TextView
+            android:id="@+id/tvMultiplier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⚡ Seeker V2 + SKR Boost: 1.45x Multiplier"
+            android:textColor="#FBBF24"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <!-- Status & Toggle -->
+    <TextView
+        android:id="@+id/tvServiceStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Status: IDLE"
+        android:textColor="#F3F4F6"
+        android:textSize="14sp"
+        android:fontFamily="monospace"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/btnToggleCollection"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="START DEPIN COLLECTION"
+        android:backgroundTint="#10B981"
+        android:textColor="#080B10"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
+        android:layout_marginTop="12dp" />
+
+    <!-- Feature Info List -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ACTIVE SENSORS:"
+            android:textColor="#6B7280"
+            android:textSize="12sp"
+            android:fontFamily="monospace"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• 5G/LTE Signal (dBm, Carrier, Cell ID)\n• Salted Wi-Fi Mesh Density (SHA-256)\n• Pavement Roughness &amp; Potholes (IRI Index)\n• H3 Spatial Hexagonal Tile Binning"
+            android:textColor="#9CA3AF"
+            android:lineSpacingExtra="6dp"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+</LinearLayout>

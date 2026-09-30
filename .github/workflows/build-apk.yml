@@ -1,0 +1,72 @@
+name: Build Android APK
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build SensorNet APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Grant Execute Permission to Gradle
+        run: chmod +x android/gradlew
+
+      - name: Build APK with Gradle
+        run: |
+          cd android
+          ./gradlew assembleDebug --stacktrace || ./gradlew assembleRelease --stacktrace
+
+      - name: Locate and Rename APK
+        run: |
+          mkdir -p release-output
+          find android/app/build/outputs/apk -name "*.apk" -exec cp {} release-output/SensorNet-Seeker.apk \;
+          ls -la release-output/
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: SensorNet-Seeker-APK
+          path: release-output/SensorNet-Seeker.apk
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        if: github.ref == 'refs/heads/main'
+        with:
+          tag_name: v1.0.0-preview
+          name: SensorNet v1.0.0 (Solana Seeker DePIN APK)
+          body: |
+            ## 🚀 SensorNet v1.0.0 — Clock In Hackathon Release
+            
+            Autonomous Mobile DePIN application for the Solana Seeker smartphone.
+            
+            ### Included Features:
+            * 📡 5G/LTE Cellular Telemetry Collection (dBm, Carrier, Cell ID)
+            * 🛜 Privacy-Preserving Salted Wi-Fi Mesh Density Scanner
+            * 🚗 IMU Road Surface Vibration & Pothole IRI Index Analysis
+            * 🔷 Uber H3 Spatial Hexagonal Tile Quantization
+            * 🔐 Solana Mobile Stack & Seed Vault MWA 2.0 Integration
+            * 🪙 $SKR Token Staking Multiplier Boost (+25% to +100%)
+            * ⛏️ Background ORE Proof-of-Work Anti-Sybil Verifier
+            
+            **Direct Download:** Download `SensorNet-Seeker.apk` below and install directly on your Android device or Seeker emulator.
+          files: release-output/SensorNet-Seeker.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
